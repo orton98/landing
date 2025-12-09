@@ -32,7 +32,7 @@ export function Hero() {
             {/* Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-tight animate-slide-up" style={{ animationDelay: "0.1s" }}>
               <span className="text-foreground">Master</span>{" "}
-              <span className="text-gradient-teal">AI Prompt</span>{" "}
+              <span className="text-gradient-amber">AI Prompt</span>{" "}
               <span className="text-foreground">Engineering</span>
             </h1>
 
@@ -43,10 +43,10 @@ export function Hero() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-up" style={{ animationDelay: "0.3s" }}>
-              <button onClick={() => scrollTo("#products")} className="btn-teal text-lg px-8 py-4">
+              <button onClick={() => scrollTo("#products")} className="btn-amber text-lg px-8 py-4">
                 Get the Book
               </button>
-              <button onClick={() => scrollTo("#features")} className="btn-outline-teal text-lg px-8 py-4">
+              <button onClick={() => scrollTo("#features")} className="btn-outline-amber text-lg px-8 py-4">
                 See Inside
               </button>
             </div>
@@ -79,10 +79,10 @@ export function Hero() {
               <div className="absolute inset-0 bg-primary/15 rounded-3xl blur-3xl scale-110" />
               
               {/* Book mockup */}
-              <div className="relative glass rounded-3xl p-8 glow-teal border border-primary/20">
+              <div className="relative glass rounded-3xl p-8 glow-amber border border-primary/20">
                 <div className="w-64 md:w-80 aspect-[3/4] bg-gradient-to-br from-card via-secondary to-muted rounded-2xl flex flex-col items-center justify-center p-8 border border-primary/20 shadow-2xl">
                   <BookOpen className="w-20 h-20 text-primary mb-6" />
-                  <h3 className="font-display text-2xl md:text-3xl font-bold text-gradient-teal text-center mb-2">
+                  <h3 className="font-display text-2xl md:text-3xl font-bold text-gradient-amber text-center mb-2">
                     PromptCraft
                   </h3>
                   <p className="text-sm text-muted-foreground text-center">

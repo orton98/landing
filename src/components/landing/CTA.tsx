@@ -17,7 +17,7 @@ export function CTA() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
             <span className="text-foreground">Ready to</span>{" "}
-            <span className="text-gradient-teal">Master AI Prompts</span>
+            <span className="text-gradient-amber">Master AI Prompts</span>
             <span className="text-foreground">?</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
@@ -25,10 +25,10 @@ export function CTA() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={() => scrollTo("#products")} className="btn-teal text-lg px-10 py-4">
+            <button onClick={() => scrollTo("#products")} className="btn-amber text-lg px-10 py-4">
               Get PromptCraft Now
             </button>
-            <button onClick={() => scrollTo("#features")} className="btn-outline-teal text-lg px-10 py-4">
+            <button onClick={() => scrollTo("#features")} className="btn-outline-amber text-lg px-10 py-4">
               See Sample Chapters
             </button>
           </div>

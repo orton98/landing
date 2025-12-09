@@ -41,7 +41,7 @@ export function FAQ() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
             <span className="text-foreground">Frequently Asked</span>{" "}
-            <span className="text-gradient-teal">Questions</span>
+            <span className="text-gradient-amber">Questions</span>
           </h2>
           <p className="text-lg text-muted-foreground">
             Got questions? We've got answers.

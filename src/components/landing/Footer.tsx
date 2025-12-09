@@ -31,10 +31,10 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2 lg:col-span-1">
             <a href="#" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-full bg-gradient-teal flex items-center justify-center">
-                <BookOpen className="w-5 h-5 text-card" />
+              <div className="w-10 h-10 rounded-full bg-gradient-amber flex items-center justify-center">
+                <BookOpen className="w-5 h-5 text-background" />
               </div>
-              <span className="text-xl font-display font-bold text-gradient-teal">
+              <span className="text-xl font-display font-bold text-gradient-amber">
                 PromptCraft
               </span>
             </a>
@@ -100,7 +100,7 @@ export function Footer() {
                 placeholder="your@email.com"
                 className="flex-1 px-4 py-2 rounded-full glass border border-border focus:border-primary/50 focus:outline-none text-sm bg-transparent text-foreground placeholder:text-muted-foreground"
               />
-              <button className="btn-teal px-4 py-2 text-sm">
+              <button className="btn-amber px-4 py-2 text-sm">
                 Join
               </button>
             </div>

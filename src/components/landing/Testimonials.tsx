@@ -29,7 +29,7 @@ export function Testimonials() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
             <span className="text-foreground">What Our</span>{" "}
-            <span className="text-gradient-teal">Readers Say</span>
+            <span className="text-gradient-amber">Readers Say</span>
           </h2>
           <p className="text-lg text-muted-foreground">
             Join thousands of professionals who have transformed their AI workflow.

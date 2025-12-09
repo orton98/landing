@@ -26,10 +26,10 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-gradient-teal flex items-center justify-center">
-              <BookOpen className="w-5 h-5 text-card" />
+            <div className="w-10 h-10 rounded-full bg-gradient-amber flex items-center justify-center">
+              <BookOpen className="w-5 h-5 text-background" />
             </div>
-            <span className="text-xl font-display font-bold text-gradient-teal">
+            <span className="text-xl font-display font-bold text-gradient-amber">
               PromptCraft
             </span>
           </a>
@@ -57,7 +57,7 @@ export function Navbar() {
             </Button>
             <button
               onClick={() => scrollTo("#products")}
-              className="btn-teal text-sm"
+              className="btn-amber text-sm"
             >
               Get Started
             </button>
@@ -87,7 +87,7 @@ export function Navbar() {
               ))}
               <button
                 onClick={() => scrollTo("#products")}
-                className="btn-teal text-center mt-2"
+                className="btn-amber text-center mt-2"
               >
                 Get Started
               </button>

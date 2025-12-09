@@ -29,7 +29,7 @@ export function HowItWorks() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
             <span className="text-foreground">How</span>{" "}
-            <span className="text-gradient-teal">It Works</span>
+            <span className="text-gradient-amber">It Works</span>
           </h2>
           <p className="text-lg text-muted-foreground">
             A simple, proven path to prompt mastery in just four steps.
@@ -49,7 +49,7 @@ export function HowItWorks() {
               )}
 
               {/* Number */}
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-teal flex items-center justify-center text-card font-bold text-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-amber flex items-center justify-center text-background font-bold text-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
                 {step.number}
               </div>
 

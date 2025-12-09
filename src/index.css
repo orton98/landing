@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,90 +6,77 @@
 
 @layer base {
   :root {
-    /* Cream + Deep Teal Sophisticated Theme */
-    --background: 40 33% 96%;
-    --foreground: 170 50% 10%;
-
-    --card: 40 40% 98%;
-    --card-foreground: 170 50% 10%;
-
-    --popover: 40 40% 98%;
-    --popover-foreground: 170 50% 10%;
-
-    --primary: 168 76% 36%;
-    --primary-foreground: 40 33% 98%;
-
-    --secondary: 40 30% 92%;
-    --secondary-foreground: 170 40% 20%;
-
-    --muted: 40 20% 90%;
-    --muted-foreground: 170 15% 40%;
-
-    --accent: 168 76% 36%;
-    --accent-foreground: 40 33% 98%;
-
+    /* Dark Slate + Amber Theme */
+    --background: 222 47% 8%;
+    --foreground: 40 20% 95%;
+    
+    --card: 222 40% 12%;
+    --card-foreground: 40 20% 95%;
+    
+    --popover: 222 40% 12%;
+    --popover-foreground: 40 20% 95%;
+    
+    --primary: 38 92% 50%;
+    --primary-foreground: 222 47% 8%;
+    
+    --secondary: 222 30% 18%;
+    --secondary-foreground: 40 20% 90%;
+    
+    --muted: 222 25% 20%;
+    --muted-foreground: 40 15% 65%;
+    
+    --accent: 32 95% 44%;
+    --accent-foreground: 222 47% 8%;
+    
     --destructive: 0 84% 60%;
-    --destructive-foreground: 40 33% 98%;
-
-    --border: 40 20% 85%;
-    --input: 40 20% 88%;
-    --ring: 168 76% 36%;
-
+    --destructive-foreground: 40 20% 95%;
+    
+    --border: 222 25% 22%;
+    --input: 222 25% 22%;
+    --ring: 38 92% 50%;
+    
     --radius: 0.75rem;
-
-    /* Extended Teal Palette */
-    --teal-50: 166 76% 97%;
-    --teal-100: 167 76% 92%;
-    --teal-200: 168 74% 83%;
-    --teal-300: 169 70% 72%;
-    --teal-400: 170 66% 55%;
-    --teal-500: 168 76% 42%;
-    --teal-600: 168 76% 36%;
-    --teal-700: 169 72% 29%;
-    --teal-800: 170 70% 24%;
-    --teal-900: 171 68% 20%;
-
-    /* Extended Cream Palette */
-    --cream-50: 40 60% 99%;
-    --cream-100: 40 50% 97%;
-    --cream-200: 40 40% 94%;
-    --cream-300: 40 33% 90%;
-    --cream-400: 40 25% 82%;
-    --cream-500: 40 20% 70%;
-    --cream-600: 40 15% 55%;
-    --cream-700: 40 12% 40%;
-    --cream-800: 40 10% 28%;
-    --cream-900: 40 8% 18%;
-
-    /* Glassmorphism for light theme */
-    --glass-bg: 40 40% 98% / 0.7;
-    --glass-border: 168 50% 40% / 0.15;
-    --glass-hover: 40 40% 96% / 0.9;
-
-    /* Gradients */
-    --gradient-teal: linear-gradient(135deg, hsl(170 66% 55%), hsl(168 76% 36%), hsl(169 72% 29%));
-    --gradient-cream: linear-gradient(135deg, hsl(40 40% 98%), hsl(40 33% 96%));
-    --gradient-glow: radial-gradient(circle at 50% 50%, hsl(168 76% 36% / 0.12), transparent 70%);
-
-    /* Shadows */
-    --shadow-teal: 0 0 60px -10px hsl(168 76% 36% / 0.25);
-    --shadow-card: 0 25px 50px -12px hsl(40 20% 20% / 0.1);
-    --shadow-glow: 0 0 40px hsl(168 76% 36% / 0.15);
-
-    /* Sidebar vars */
-    --sidebar-background: 40 40% 98%;
-    --sidebar-foreground: 170 50% 10%;
-    --sidebar-primary: 168 76% 36%;
-    --sidebar-primary-foreground: 40 33% 98%;
-    --sidebar-accent: 40 30% 92%;
-    --sidebar-accent-foreground: 170 40% 20%;
-    --sidebar-border: 40 20% 85%;
-    --sidebar-ring: 168 76% 36%;
+    
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 38 92% 50%;
+    --sidebar-primary-foreground: 222 47% 8%;
+    --sidebar-accent: 222 30% 18%;
+    --sidebar-accent-foreground: 40 20% 90%;
+    --sidebar-border: 222 25% 22%;
+    --sidebar-ring: 38 92% 50%;
+    
+    /* Extended Amber Palette */
+    --amber-50: 48 100% 96%;
+    --amber-100: 48 96% 89%;
+    --amber-200: 48 97% 77%;
+    --amber-300: 46 97% 65%;
+    --amber-400: 43 96% 56%;
+    --amber-500: 38 92% 50%;
+    --amber-600: 32 95% 44%;
+    --amber-700: 26 90% 37%;
+    --amber-800: 23 83% 31%;
+    --amber-900: 22 78% 26%;
+    
+    /* Extended Slate Palette */
+    --slate-50: 210 40% 98%;
+    --slate-100: 214 32% 91%;
+    --slate-200: 213 27% 84%;
+    --slate-300: 215 20% 65%;
+    --slate-400: 215 16% 47%;
+    --slate-500: 215 19% 35%;
+    --slate-600: 215 25% 27%;
+    --slate-700: 217 33% 17%;
+    --slate-800: 222 47% 11%;
+    --slate-900: 222 47% 8%;
   }
 
   .dark {
-    --background: 170 50% 6%;
-    --foreground: 40 33% 96%;
+    --background: 222 47% 6%;
+    --foreground: 40 20% 95%;
+    --card: 222 40% 10%;
+    --primary: 38 92% 50%;
+    --muted: 222 25% 15%;
   }
 }
 
@@ -101,48 +88,73 @@
   html {
     scroll-behavior: smooth;
   }
-
+  
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
   }
-
+  
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    @apply font-display;
   }
 }
 
 @layer components {
+  /* Glassmorphism for dark theme */
   .glass {
-    @apply bg-card/70 backdrop-blur-xl border border-border;
-    box-shadow: 0 4px 30px hsl(168 76% 36% / 0.05);
+    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+  }
+  
+  .glass-card {
+    @apply bg-card/40 backdrop-blur-lg border border-border/30 rounded-xl;
+    box-shadow: 0 8px 32px hsl(var(--background) / 0.3);
+  }
+  
+  .glass-nav {
+    @apply bg-background/80 backdrop-blur-xl border-b border-border/30;
   }
 
   .glass-hover {
-    @apply hover:bg-card/90 transition-all duration-300;
+    @apply hover:bg-card/80 transition-all duration-300;
   }
-
-  .text-gradient-teal {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(170 66% 55%), hsl(168 76% 36%), hsl(169 72% 29%));
+  
+  /* Gradient utilities */
+  .bg-gradient-amber {
+    @apply bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500;
   }
-
-  .bg-gradient-teal {
-    background: linear-gradient(135deg, hsl(170 66% 55%), hsl(168 76% 36%), hsl(169 72% 29%));
+  
+  .bg-gradient-dark {
+    @apply bg-gradient-to-b from-background via-card to-background;
   }
-
-  .glow-teal {
-    box-shadow: 0 0 60px -10px hsl(168 76% 36% / 0.3);
+  
+  .text-gradient-amber {
+    @apply bg-gradient-to-r from-amber-400 via-amber-300 to-amber-400 bg-clip-text text-transparent;
   }
-
-  .btn-teal {
-    @apply bg-gradient-teal text-card font-semibold px-6 py-3 rounded-full transition-all duration-300;
-    @apply hover:scale-105 hover:shadow-[0_0_40px_hsl(168_76%_36%/0.3)];
+  
+  /* Button styles */
+  .btn-amber {
+    @apply bg-gradient-to-r from-amber-500 to-amber-600 text-background font-semibold px-6 py-3 rounded-full
+           hover:from-amber-400 hover:to-amber-500 transition-all duration-300 
+           shadow-lg shadow-amber-500/25 hover:shadow-amber-400/40 hover:scale-[1.02];
   }
-
-  .btn-outline-teal {
-    @apply border-2 border-primary/40 text-primary bg-transparent px-6 py-3 rounded-full transition-all duration-300;
-    @apply hover:bg-primary/10 hover:border-primary/60;
+  
+  .btn-outline-amber {
+    @apply border-2 border-amber-500/50 text-amber-400 font-semibold px-6 py-3 rounded-full
+           hover:bg-amber-500/10 hover:border-amber-400 transition-all duration-300;
+  }
+  
+  /* Premium shadows */
+  .shadow-amber {
+    box-shadow: 0 10px 40px -10px hsl(var(--primary) / 0.4),
+                0 4px 20px -5px hsl(var(--primary) / 0.2);
+  }
+  
+  .shadow-dark {
+    box-shadow: 0 25px 50px -12px hsl(222 47% 4% / 0.8);
+  }
+  
+  /* Glow effects */
+  .glow-amber {
+    box-shadow: 0 0 60px hsl(var(--primary) / 0.4), 0 0 100px hsl(var(--primary) / 0.15);
   }
 
   .section-padding {
@@ -223,20 +235,16 @@
   }
 }
 
-/* Custom scrollbar */
+/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(40 33% 96%);
+  @apply bg-secondary/50;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(168 76% 36% / 0.3);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(168 76% 36% / 0.5);
+  @apply bg-primary/30 rounded-full hover:bg-primary/50;
 }
