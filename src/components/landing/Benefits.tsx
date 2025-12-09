@@ -34,7 +34,7 @@ export function Benefits() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
             <span className="text-foreground">Why Choose</span>{" "}
-            <span className="text-gradient-teal">PromptCraft</span>
+            <span className="text-gradient-amber">PromptCraft</span>
           </h2>
           <p className="text-lg text-muted-foreground">
             Join thousands of professionals who have transformed their AI interactions with our proven methodology.

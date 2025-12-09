@@ -40,7 +40,7 @@ export function Features() {
           <div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
               <span className="text-foreground">Everything You Need to</span>{" "}
-              <span className="text-gradient-teal">Master AI</span>
+              <span className="text-gradient-amber">Master AI</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-12">
               A comprehensive system built from years of research and real-world testing with top AI models.

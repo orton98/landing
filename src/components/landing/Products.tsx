@@ -62,7 +62,7 @@ export function Products() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
             <span className="text-foreground">Choose Your</span>{" "}
-            <span className="text-gradient-teal">Package</span>
+            <span className="text-gradient-amber">Package</span>
           </h2>
           <p className="text-lg text-muted-foreground">
             Select the option that best fits your learning journey and goals.
@@ -76,13 +76,13 @@ export function Products() {
               key={product.name}
               className={`relative glass rounded-2xl p-6 flex flex-col border transition-all duration-500 hover:-translate-y-2 ${
                 product.popular
-                  ? "border-primary/50 glow-teal"
+                  ? "border-primary/50 glow-amber"
                   : "border-border hover:border-primary/30"
               }`}
             >
               {/* Popular badge */}
               {product.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-teal rounded-full text-card text-sm font-semibold flex items-center gap-1">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-amber rounded-full text-background text-sm font-semibold flex items-center gap-1">
                   <Sparkles className="w-4 h-4" />
                   Most Popular
                 </div>
@@ -96,7 +96,7 @@ export function Products() {
                 <p className="text-sm text-muted-foreground mb-4">
                   {product.description}
                 </p>
-                <div className="text-4xl font-display font-bold text-gradient-teal">
+                <div className="text-4xl font-display font-bold text-gradient-amber">
                   {product.price}
                 </div>
               </div>
@@ -115,8 +115,8 @@ export function Products() {
               <button
                 className={`w-full py-3 rounded-full font-semibold transition-all duration-300 ${
                   product.popular
-                    ? "btn-teal"
-                    : "btn-outline-teal"
+                    ? "btn-amber"
+                    : "btn-outline-amber"
                 }`}
               >
                 {product.price === "Custom" ? "Contact Sales" : "Get Started"}
