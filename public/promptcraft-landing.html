@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PromptCraft - Master AI Prompt Engineering</title>
+  <meta name="description" content="The definitive guide to AI prompt engineering. Master ChatGPT, Claude, Gemini and more with 1000+ proven prompts and the CRISP framework.">
+  <meta name="author" content="PromptCraft">
+  <meta name="keywords" content="AI prompts, prompt engineering, ChatGPT, Claude, AI guide, CRISP framework">
+  <meta property="og:title" content="PromptCraft - Master AI Prompt Engineering">
+  <meta property="og:description" content="The definitive guide to AI prompt engineering. Master ChatGPT, Claude, Gemini and more with 1000+ proven prompts.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --background: hsl(222 47% 8%);
+      --foreground: hsl(40 20% 95%);
+      --card: hsl(222 40% 12%);
+      --primary: hsl(38 92% 50%);
+      --primary-foreground: hsl(222 47% 8%);
+      --secondary: hsl(222 30% 18%);
+      --muted: hsl(222 25% 20%);
+      --muted-foreground: hsl(40 15% 65%);
+      --border: hsl(222 25% 22%);
+      --amber-300: hsl(46 97% 65%);
+      --amber-400: hsl(43 96% 56%);
+      --amber-500: hsl(38 92% 50%);
+      --amber-600: hsl(32 95% 44%);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Glass effect */
+    .glass {
+      background: rgba(24, 32, 48, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Gradients */
+    .bg-gradient-amber {
+      background: linear-gradient(135deg, var(--amber-500), var(--amber-600));
+    }
+
+    .text-gradient-amber {
+      background: linear-gradient(135deg, var(--amber-400), var(--amber-300), var(--amber-400));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Buttons */
+    .btn-amber {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--amber-500), var(--amber-600));
+      color: var(--primary-foreground);
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.4);
+      text-decoration: none;
+    }
+
+    .btn-amber:hover {
+      transform: scale(1.02);
+      box-shadow: 0 15px 40px -10px rgba(245, 158, 11, 0.5);
+    }
+
+    .btn-outline-amber {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: var(--amber-400);
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      border: 2px solid rgba(245, 158, 11, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-outline-amber:hover {
+      background: rgba(245, 158, 11, 0.1);
+      border-color: var(--amber-400);
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-links {
+      display: none;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+
+    .nav-links a {
+      color: var(--muted-foreground);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-cta {
+      display: none;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .nav-cta {
+        display: flex;
+      }
+    }
+
+    .sign-in-btn {
+      background: none;
+      border: none;
+      color: var(--muted-foreground);
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .mobile-menu-btn {
+      display: block;
+      background: none;
+      border: none;
+      color: var(--foreground);
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .mobile-menu-btn {
+        display: none;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding: 8rem 1rem 5rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .hero-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.4;
+    }
+
+    .hero-glow-1 {
+      top: 25%;
+      right: -8rem;
+      width: 24rem;
+      height: 24rem;
+      background: rgba(245, 158, 11, 0.15);
+    }
+
+    .hero-glow-2 {
+      bottom: 25%;
+      left: -8rem;
+      width: 20rem;
+      height: 20rem;
+      background: rgba(245, 158, 11, 0.08);
+    }
+
+    .hero-content {
+      position: relative;
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+      }
+    }
+
+    .hero-text {
+      text-align: center;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-text {
+        text-align: left;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      color: var(--primary);
+      font-weight: 500;
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero h1 {
+        font-size: 3.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero h1 {
+        font-size: 4rem;
+      }
+    }
+
+    .hero-description {
+      font-size: 1.125rem;
+      color: var(--muted-foreground);
+      max-width: 36rem;
+      margin: 0 auto 2rem;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-description {
+        margin: 0 0 2rem;
+      }
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 640px) {
+      .hero-buttons {
+        flex-direction: row;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-buttons {
+        justify-content: flex-start;
+      }
+    }
+
+    .hero-buttons .btn-amber,
+    .hero-buttons .btn-outline-amber {
+      padding: 1rem 2rem;
+      font-size: 1.125rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-stats {
+        justify-content: flex-start;
+      }
+    }
+
+    .hero-stat {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted-foreground);
+    }
+
+    .stars {
+      display: flex;
+      color: var(--primary);
+    }
+
+    /* Book Visual */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-visual {
+        justify-content: flex-end;
+      }
+    }
+
+    .book-wrapper {
+      position: relative;
+    }
+
+    .book-glow {
+      position: absolute;
+      inset: 0;
+      background: rgba(245, 158, 11, 0.15);
+      border-radius: 1.5rem;
+      filter: blur(60px);
+      transform: scale(1.1);
+    }
+
+    .book-container {
+      position: relative;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      box-shadow: 0 0 60px rgba(245, 158, 11, 0.3);
+    }
+
+    .book-mockup {
+      width: 16rem;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, var(--card), var(--secondary), var(--muted));
+      border-radius: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    @media (min-width: 768px) {
+      .book-mockup {
+        width: 20rem;
+      }
+    }
+
+    .book-icon {
+      width: 5rem;
+      height: 5rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    .book-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .book-title {
+        font-size: 1.875rem;
+      }
+    }
+
+    .book-subtitle {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      text-align: center;
+    }
+
+    .book-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.5), transparent);
+      margin: 1.5rem 0;
+    }
+
+    .book-prompts {
+      font-size: 0.75rem;
+      color: var(--primary);
+    }
+
+    .rating-badge {
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .rating-stars {
+      display: flex;
+      gap: 0.125rem;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .rating-value {
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+
+    .rating-count {
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 5rem 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .section {
+        padding: 7rem 1rem;
+      }
+    }
+
+    .section-alt {
+      background: rgba(30, 41, 59, 0.3);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 48rem;
+      margin: 0 auto 4rem;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .section-header h2 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .section-header h2 {
+        font-size: 3rem;
+      }
+    }
+
+    .section-header p {
+      font-size: 1.125rem;
+      color: var(--muted-foreground);
+    }
+
+    /* Benefits Grid */
+    .benefits-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .benefits-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .benefit-card {
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      border-color: rgba(245, 158, 11, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .benefit-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 0.75rem;
+      background: rgba(245, 158, 11, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    .benefit-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .benefit-card p {
+      color: var(--muted-foreground);
+      line-height: 1.6;
+    }
+
+    /* Features Section */
+    .features-grid {
+      display: grid;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .feature-emoji {
+      font-size: 1.875rem;
+      flex-shrink: 0;
+    }
+
+    .feature-item h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-item p {
+      color: var(--muted-foreground);
+    }
+
+    .toc-card {
+      position: relative;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+
+    .toc-glow {
+      position: absolute;
+      inset: 0;
+      background: rgba(245, 158, 11, 0.1);
+      border-radius: 1.5rem;
+      filter: blur(40px);
+      z-index: -1;
+    }
+
+    .toc-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .toc-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .toc-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      background: rgba(14, 22, 38, 0.5);
+      border: 1px solid var(--border);
+      transition: border-color 0.3s;
+    }
+
+    .toc-item:hover {
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    .toc-item-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .toc-dot {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    .toc-chapter {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    .toc-bonus {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05));
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+    }
+
+    /* How It Works */
+    .steps-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .steps-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .step-card {
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .step-card:hover {
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    .step-number {
+      width: 4rem;
+      height: 4rem;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--primary-foreground);
+      box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.4);
+      transition: transform 0.3s;
+    }
+
+    .step-card:hover .step-number {
+      transform: scale(1.1);
+    }
+
+    .step-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .step-card p {
+      color: var(--muted-foreground);
+    }
+
+    /* Products Grid */
+    .products-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .product-card {
+      position: relative;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    .product-card.popular {
+      border-color: rgba(245, 158, 11, 0.5);
+      box-shadow: 0 0 60px rgba(245, 158, 11, 0.3);
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.25rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--primary-foreground);
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      white-space: nowrap;
+    }
+
+    .product-header {
+      text-align: center;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .product-header h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .product-description {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      margin-bottom: 1rem;
+    }
+
+    .product-price {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    .product-features {
+      flex: 1;
+      padding: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .product-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+
+    .check-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--primary);
+      flex-shrink: 0;
+      margin-top: 0.125rem;
+    }
+
+    .product-card .btn-amber,
+    .product-card .btn-outline-amber {
+      width: 100%;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .testimonial-card {
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 0.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .star-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--primary);
+      fill: var(--primary);
+    }
+
+    .testimonial-quote {
+      font-size: 1.125rem;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+    }
+
+    .testimonial-role {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 48rem;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .faq-item.open {
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: transparent;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--foreground);
+      font-size: 1rem;
+      font-family: 'Playfair Display', serif;
+      transition: color 0.3s;
+    }
+
+    .faq-question:hover {
+      color: var(--primary);
+    }
+
+    .faq-question-text {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .faq-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .faq-chevron {
+      width: 1.25rem;
+      height: 1.25rem;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 1.5rem 1.25rem 3.5rem;
+      color: var(--muted-foreground);
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50rem;
+      height: 25rem;
+      background: rgba(245, 158, 11, 0.1);
+      border-radius: 50%;
+      filter: blur(60px);
+    }
+
+    .cta-content {
+      position: relative;
+      max-width: 56rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .cta-content h2 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .cta-content h2 {
+        font-size: 3rem;
+      }
+    }
+
+    .cta-content > p {
+      font-size: 1.125rem;
+      color: var(--muted-foreground);
+      max-width: 36rem;
+      margin: 0 auto 2.5rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    @media (min-width: 640px) {
+      .cta-buttons {
+        flex-direction: row;
+      }
+    }
+
+    .cta-buttons .btn-amber,
+    .cta-buttons .btn-outline-amber {
+      padding: 1rem 2.5rem;
+      font-size: 1.125rem;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 4rem 1rem;
+      border-top: 1px solid var(--border);
+      background: rgba(30, 41, 59, 0.3);
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .footer-brand {
+      grid-column: span 2;
+    }
+
+    @media (min-width: 1024px) {
+      .footer-brand {
+        grid-column: span 1;
+      }
+    }
+
+    .footer-brand p {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted-foreground);
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      color: var(--primary);
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    .footer-column h4 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    .newsletter p {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--foreground);
+      font-size: 0.875rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .newsletter-input::placeholder {
+      color: var(--muted-foreground);
+    }
+
+    .newsletter-input:focus {
+      border-color: rgba(245, 158, 11, 0.5);
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-bottom p {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+
+    /* SVG Icons */
+    .icon {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    .icon-lg {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar glass">
+    <div class="container navbar-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon bg-gradient-amber">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--primary-foreground)">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+        </div>
+        <span class="text-gradient-amber" style="font-size: 1.25rem; font-weight: 700; font-family: 'Playfair Display', serif;">PromptCraft</span>
+      </a>
+      
+      <div class="nav-links">
+        <a href="#benefits">Benefits</a>
+        <a href="#features">Features</a>
+        <a href="#products">Products</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      
+      <div class="nav-cta">
+        <button class="sign-in-btn">Sign In</button>
+        <a href="#products" class="btn-amber" style="font-size: 0.875rem;">Get Started</a>
+      </div>
+      
+      <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-bg">
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+    </div>
+    
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge glass">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          #1 Bestseller in AI & Tech
+        </div>
+        
+        <h1>
+          <span>Master</span> <span class="text-gradient-amber">AI Prompt</span> <span>Engineering</span>
+        </h1>
+        
+        <p class="hero-description">
+          The definitive guide to crafting powerful prompts. Unlock the full potential of ChatGPT, Claude, and other AI models with proven frameworks.
+        </p>
+        
+        <div class="hero-buttons">
+          <a href="#products" class="btn-amber">Get the Book</a>
+          <a href="#features" class="btn-outline-amber">See Inside</a>
+        </div>
+        
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="stars">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <span style="font-weight: 600;">4.9/5</span>
+          </div>
+          <div class="hero-stat">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--primary)"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            50K+ Readers
+          </div>
+          <div class="hero-stat">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--primary)"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            Award Winner
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <div class="book-wrapper">
+          <div class="book-glow"></div>
+          <div class="book-container glass">
+            <div class="book-mockup">
+              <svg class="book-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+              <h3 class="book-title text-gradient-amber">PromptCraft</h3>
+              <p class="book-subtitle">The Art of AI Prompt Engineering</p>
+              <div class="book-divider"></div>
+              <p class="book-prompts">1000+ Prompts Inside</p>
+            </div>
+          </div>
+          
+          <div class="rating-badge glass">
+            <div class="rating-stars">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="rating-value">4.9 Rating</p>
+            <p class="rating-count">2.5K Reviews</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section id="benefits" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2><span>Why Choose</span> <span class="text-gradient-amber">PromptCraft</span></h2>
+        <p>Join thousands of professionals who have transformed their AI interactions with our proven methodology.</p>
+      </div>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card glass">
+          <div class="benefit-icon">
+            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>10x Faster Results</h3>
+          <p>Master proven frameworks that help you get better AI responses on your first try, every time.</p>
+        </div>
+        
+        <div class="benefit-card glass">
+          <div class="benefit-icon">
+            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <h3>Precision Prompting</h3>
+          <p>Learn the exact techniques used by top AI researchers to craft clear, effective prompts.</p>
+        </div>
+        
+        <div class="benefit-card glass">
+          <div class="benefit-icon">
+            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M5 19l1 3 1-3"/><path d="M18 19l1 3 1-3"/></svg>
+          </div>
+          <h3>1000+ Templates</h3>
+          <p>Access our curated library of battle-tested prompts for writing, coding, analysis, and more.</p>
+        </div>
+        
+        <div class="benefit-card glass">
+          <div class="benefit-icon">
+            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <h3>Future-Proof Skills</h3>
+          <p>Build transferable skills that work across ChatGPT, Claude, Gemini, and future AI models.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section section-alt">
+    <div class="container">
+      <div class="features-grid">
+        <div>
+          <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem;">
+            <span>Everything You Need to</span> <span class="text-gradient-amber">Master AI</span>
+          </h2>
+          <p style="font-size: 1.125rem; color: var(--muted-foreground); margin-bottom: 3rem;">
+            A comprehensive system built from years of research and real-world testing with top AI models.
+          </p>
+          
+          <div class="features-list">
+            <div class="feature-item">
+              <span class="feature-emoji">📖</span>
+              <div>
+                <h3>CRISP Framework</h3>
+                <p>Our proven 5-step methodology: Context, Role, Instructions, Specificity, Parameters.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <span class="feature-emoji">🎯</span>
+              <div>
+                <h3>Real Examples</h3>
+                <p>Every concept illustrated with before/after prompts showing dramatic improvements.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <span class="feature-emoji">🔧</span>
+              <div>
+                <h3>Tool Mastery</h3>
+                <p>Dedicated chapters for ChatGPT, Claude, Gemini, and emerging AI platforms.</p>
+              </div>
+            </div>
+            
+            <div class="feature-item">
+              <span class="feature-emoji">💡</span>
+              <div>
+                <h3>Advanced Techniques</h3>
+                <p>Chain-of-thought, few-shot learning, persona prompts, and more.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="toc-card glass">
+          <div class="toc-glow"></div>
+          <h3 class="toc-header">
+            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--primary)">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+            What's Inside
+          </h3>
+          
+          <div class="toc-items">
+            <div class="toc-item">
+              <div class="toc-item-left">
+                <div class="toc-dot"></div>
+                <span>Fundamentals of Prompting</span>
+              </div>
+              <span class="toc-chapter">Ch. 1-3</span>
+            </div>
+            
+            <div class="toc-item">
+              <div class="toc-item-left">
+                <div class="toc-dot"></div>
+                <span>The CRISP Framework</span>
+              </div>
+              <span class="toc-chapter">Ch. 4-6</span>
+            </div>
+            
+            <div class="toc-item">
+              <div class="toc-item-left">
+                <div class="toc-dot"></div>
+                <span>Platform-Specific Guides</span>
+              </div>
+              <span class="toc-chapter">Ch. 7-10</span>
+            </div>
+            
+            <div class="toc-item">
+              <div class="toc-item-left">
+                <div class="toc-dot"></div>
+                <span>Advanced Techniques</span>
+              </div>
+              <span class="toc-chapter">Ch. 11-14</span>
+            </div>
+            
+            <div class="toc-item">
+              <div class="toc-item-left">
+                <div class="toc-dot"></div>
+                <span>Prompt Library (1000+)</span>
+              </div>
+              <span class="toc-chapter">Bonus</span>
+            </div>
+          </div>
+          
+          <div class="toc-bonus">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--primary)"><polyline points="20 6 9 17 4 12"/></svg>
+            Includes lifetime access to prompt library updates
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2><span>How</span> <span class="text-gradient-amber">It Works</span></h2>
+        <p>A simple, proven path to prompt mastery in just four steps.</p>
+      </div>
+      
+      <div class="steps-grid">
+        <div class="step-card glass">
+          <div class="step-number bg-gradient-amber">01</div>
+          <h3>Get the Book</h3>
+          <p>Choose your preferred format: eBook, Pro Bundle, or Team License.</p>
+        </div>
+        
+        <div class="step-card glass">
+          <div class="step-number bg-gradient-amber">02</div>
+          <h3>Learn the Framework</h3>
+          <p>Master the CRISP methodology with guided exercises and examples.</p>
+        </div>
+        
+        <div class="step-card glass">
+          <div class="step-number bg-gradient-amber">03</div>
+          <h3>Practice Daily</h3>
+          <p>Apply templates from our 1000+ prompt library to real tasks.</p>
+        </div>
+        
+        <div class="step-card glass">
+          <div class="step-number bg-gradient-amber">04</div>
+          <h3>See Results</h3>
+          <p>Watch your AI outputs improve dramatically within days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2><span>Choose Your</span> <span class="text-gradient-amber">Package</span></h2>
+        <p>Select the option that best fits your learning journey and goals.</p>
+      </div>
+      
+      <div class="products-grid">
+        <div class="product-card glass">
+          <div class="product-header">
+            <h3>eBook</h3>
+            <p class="product-description">Perfect for self-learners</p>
+            <div class="product-price text-gradient-amber">$29</div>
+          </div>
+          <div class="product-features">
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Full 400+ page guide
+            </div>
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              PDF, EPUB, MOBI formats
+            </div>
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Basic prompt library (200+)
+            </div>
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Lifetime updates
+            </div>
+          </div>
+          <a href="#" class="btn-outline-amber">Get Started</a>
+        </div>
+        
+        <div class="product-card glass popular">
+          <div class="popular-badge bg-gradient-amber">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/></svg>
+            Most Popular
+          </div>
+          <div class="product-header">
+            <h3>Pro Bundle</h3>
+            <p class="product-description">Most popular choice</p>
+            <div class="product-price text-gradient-amber">$79</div>
+          </div>
+          <div class="product-features">
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Everything in eBook
+            </div>
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Full prompt library (1000+)
+            </div>
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Video course (5 hours)
+            </div>
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Community access
+            </div>
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Priority support
+            </div>
+          </div>
+          <a href="#" class="btn-amber">Get Started</a>
+        </div>
+        
+        <div class="product-card glass">
+          <div class="product-header">
+            <h3>Team License</h3>
+            <p class="product-description">For teams of 5-20</p>
+            <div class="product-price text-gradient-amber">$249</div>
+          </div>
+          <div class="product-features">
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Everything in Pro Bundle
+            </div>
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Team dashboard
+            </div>
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Group training session
+            </div>
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Custom prompt templates
+            </div>
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Slack support channel
+            </div>
+          </div>
+          <a href="#" class="btn-outline-amber">Get Started</a>
+        </div>
+        
+        <div class="product-card glass">
+          <div class="product-header">
+            <h3>Enterprise</h3>
+            <p class="product-description">For large organizations</p>
+            <div class="product-price text-gradient-amber">Custom</div>
+          </div>
+          <div class="product-features">
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Everything in Team License
+            </div>
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Unlimited seats
+            </div>
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              API integration
+            </div>
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Dedicated support
+            </div>
+            <div class="product-feature">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Custom development
+            </div>
+          </div>
+          <a href="#" class="btn-outline-amber">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2><span>What Our</span> <span class="text-gradient-amber">Readers Say</span></h2>
+        <p>Join thousands of professionals who have transformed their AI workflow.</p>
+      </div>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card glass">
+          <div class="testimonial-stars">
+            <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="testimonial-quote">"PromptCraft completely changed how I work with AI. My prompts are 10x better, and I save hours every week."</blockquote>
+          <p class="testimonial-author">Sarah Chen</p>
+          <p class="testimonial-role">Product Manager at Meta</p>
+        </div>
+        
+        <div class="testimonial-card glass">
+          <div class="testimonial-stars">
+            <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="testimonial-quote">"The CRISP framework is brilliant. I went from getting mediocre responses to getting exactly what I need on the first try."</blockquote>
+          <p class="testimonial-author">Marcus Johnson</p>
+          <p class="testimonial-role">Senior Developer at Stripe</p>
+        </div>
+        
+        <div class="testimonial-card glass">
+          <div class="testimonial-stars">
+            <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="testimonial-quote">"As a content creator, this book was a game-changer. The prompt templates alone are worth 100x the price."</blockquote>
+          <p class="testimonial-author">Emily Rodriguez</p>
+          <p class="testimonial-role">Marketing Director</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2><span>Frequently Asked</span> <span class="text-gradient-amber">Questions</span></h2>
+        <p>Got questions? We've got answers.</p>
+      </div>
+      
+      <div class="faq-list">
+        <div class="faq-item glass">
+          <button class="faq-question">
+            <span class="faq-question-text">
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              What AI platforms does PromptCraft cover?
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">PromptCraft covers all major AI platforms including ChatGPT (GPT-4), Claude, Gemini, and Llama. Our techniques are designed to be transferable across platforms.</div>
+        </div>
+        
+        <div class="faq-item glass">
+          <button class="faq-question">
+            <span class="faq-question-text">
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              Do I need coding experience?
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">No coding experience required! PromptCraft is designed for professionals at all technical levels. We start with fundamentals and progress to advanced techniques.</div>
+        </div>
+        
+        <div class="faq-item glass">
+          <button class="faq-question">
+            <span class="faq-question-text">
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              What format is the book available in?
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">The eBook is available in PDF, EPUB, and MOBI formats. Pro Bundle and above include access to our searchable web version and video course.</div>
+        </div>
+        
+        <div class="faq-item glass">
+          <button class="faq-question">
+            <span class="faq-question-text">
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              Is there a money-back guarantee?
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">Yes! We offer a 30-day no-questions-asked money-back guarantee. If you're not satisfied, we'll refund your purchase in full.</div>
+        </div>
+        
+        <div class="faq-item glass">
+          <button class="faq-question">
+            <span class="faq-question-text">
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              How long will it take to see results?
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">Most readers report significant improvements within their first week of applying the CRISP framework. Mastery develops with continued practice.</div>
+        </div>
+        
+        <div class="faq-item glass">
+          <button class="faq-question">
+            <span class="faq-question-text">
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              Do I get lifetime updates?
+            </span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">Yes! All purchases include lifetime access to future updates. As AI evolves, we continuously update our content and prompt library.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-section">
+    <div class="cta-glow"></div>
+    <div class="container cta-content">
+      <h2><span>Ready to</span> <span class="text-gradient-amber">Master AI Prompts</span><span>?</span></h2>
+      <p>Join 50,000+ professionals who have transformed their productivity with the power of expert prompt engineering.</p>
+      <div class="cta-buttons">
+        <a href="#products" class="btn-amber">Get PromptCraft Now</a>
+        <a href="#features" class="btn-outline-amber">See Sample Chapters</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo" style="margin-bottom: 1rem;">
+            <div class="logo-icon bg-gradient-amber">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--primary-foreground)">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+            </div>
+            <span class="text-gradient-amber" style="font-size: 1.25rem; font-weight: 700; font-family: 'Playfair Display', serif;">PromptCraft</span>
+          </a>
+          <p>The definitive guide to AI prompt engineering. Master ChatGPT, Claude, and more.</p>
+          <div class="social-links">
+            <a href="#" class="social-link glass">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+            <a href="#" class="social-link glass">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-link glass">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#benefits">Benefits</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#products">Products</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Free Prompt Guide</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column newsletter">
+          <h4>Stay Updated</h4>
+          <p>Get free prompt tips and updates.</p>
+          <form class="newsletter-form" onsubmit="return false;">
+            <input type="email" class="newsletter-input" placeholder="your@email.com">
+            <button type="submit" class="btn-amber" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Join</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2024 PromptCraft. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        const isOpen = item.classList.contains('open');
+        
+        // Close all items
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        
+        // Open clicked item if it was closed
+        if (!isOpen) {
+          item.classList.add('open');
+        }
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
