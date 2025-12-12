@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navLinks = [
   { label: "Benefits", href: "#benefits" },
@@ -49,6 +50,7 @@ export function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
             <Button
               variant="ghost"
               className="text-muted-foreground hover:text-foreground"
